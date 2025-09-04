@@ -1,29 +1,36 @@
-<form [formGroup]="contactForm">
-  <label for="first-name">First Name: </label>
-  <input id="first-name" type="text" formControlName="firstName" />
+<div class="submit-form">
+  <h2>Contact Us</h2>
+  <form [formGroup]="contactForm">
+    <div class="details">
+      <label for="first-name">First Name: </label>
+      <input id="first-name" type="text" formControlName="firstName"/>
 
-  <label for="last-name">Last Name: </label>
-  <input id="last-name" type="text" formControlName="lastName" />
+      <label for="last-name">Last Name: </label>
+      <input id="last-name" type="text" formControlName="lastName"/>
 
-  <label for="email">E-mail Address: </label>
-  <input id="email" type="email" formControlName="email" />
+      <label for="email">E-mail Address: </label>
+      <input id="email" type="email" formControlName="email"/>
 
-  <legend>Query Type: </legend>
-  <input id="query-type-1" type="radio" value="general" formControlName="queryType" />
-  <label for="query-type-1">General Enquiry</label>
-  <input id="query-type-2" type="radio" value="support" formControlName="queryType" />
-  <label for="query-type-2">Support Request</label>
+      <legend>Query Type:</legend>
+      <input id="query-type-1" type="radio" value="general" formControlName="queryType"/>
+      <label for="query-type-1">General Enquiry</label>
+      <input id="query-type-2" type="radio" value="support" formControlName="queryType"/>
+      <label for="query-type-2">Support Request</label>
 
-  <label for="message">Message: </label>
-  <input id="message" type="text" formControlName="message" />
+      <label for="message">Message: </label>
+      <textarea id="message" type="text" formControlName="message"></textarea>
 
-  <label for="message">Support Request</label>
-  <input id="consent" type="checkbox" formControlName="consent" />
-  <label for="consent">I consent to being contacted by the team.</label>
+      <label for="consent">Support Request</label>
+      <input id="consent" type="checkbox" formControlName="consent"/>
+      <label for="consent">I consent to being contacted by the team.</label>
 
-  <button
-    type="submit"
-    [disabled]="!contactForm.valid">
-      Submit
-  </button>
-</form>
+      <button
+        type="submit"
+        [disabled]="!contactForm.valid">
+        Submit
+      </button>
+
+    </div>
+  </form>
+
+</div>
