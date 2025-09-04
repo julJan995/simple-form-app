@@ -1,13 +1,14 @@
-<div class="submit-form">
-  <h2>Contact Us</h2>
+<mat-card class="submit-form">
+  <mat-card-title>Contact Us</mat-card-title>
   <form [formGroup]="contactForm">
     <div class="details">
-      <label for="first-name">First Name: </label>
-      <input id="first-name" type="text" formControlName="firstName"/>
+      <div class="row">
+        <label for="first-name">First Name: </label>
+        <input id="first-name" type="text" formControlName="firstName"/>
 
-      <label for="last-name">Last Name: </label>
-      <input id="last-name" type="text" formControlName="lastName"/>
-
+        <label for="last-name">Last Name: </label>
+        <input id="last-name" type="text" formControlName="lastName"/>
+      </div>
       <label for="email">E-mail Address: </label>
       <input id="email" type="email" formControlName="email"/>
 
@@ -32,5 +33,4 @@
 
     </div>
   </form>
-
-</div>
+</mat-card>

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-submit-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatCardModule],
   templateUrl: './submit-form.component.html',
   styleUrl: './submit-form.component.scss'
 })
