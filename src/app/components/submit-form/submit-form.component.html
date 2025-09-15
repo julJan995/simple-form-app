@@ -1,6 +1,6 @@
 <mat-card class="submit-form">
   <mat-card-title>Contact Us</mat-card-title>
-  <form [formGroup]="contactForm">
+  <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
     <div class="details">
       <div class="row">
         <label for="first-name">First Name: </label>
