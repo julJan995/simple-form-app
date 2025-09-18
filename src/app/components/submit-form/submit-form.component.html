@@ -1,11 +1,10 @@
 <mat-card class="submit-form">
   <mat-card-title>Contact Us</mat-card-title>
-  <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="details">
       <div class="row">
         <label for="first-name">First Name: </label>
         <input id="first-name" type="text" formControlName="firstName"/>
-
         <label for="last-name">Last Name: </label>
         <input id="last-name" type="text" formControlName="lastName"/>
       </div>

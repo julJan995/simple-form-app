@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
-import {collection, collectionData, Firestore} from "@angular/fire/firestore";
-import {catchError, map, Observable, of} from 'rxjs';
+import {collection, Firestore, addDoc} from "@angular/fire/firestore";
+import {Observable, from} from 'rxjs';
 import {FormDataInterface} from '../../types/form-data.interface';
 
 @Injectable({
@@ -12,13 +12,10 @@ export class FormDataFirebaseService {
 
   constructor() { }
 
-  getFormData(): Observable<FormDataInterface[]> {
-    return collectionData(this.formDataCollection, { idField: 'id' }).pipe(
-      map((docs) => docs as FormDataInterface[]),
-      catchError(error => {
-        console.error('Error fetching form data:', error);
-        return of([]);
-      })
-    );
+  addFormData(formData: FormDataInterface): Observable<string> {
+    const promise = addDoc(this.formDataCollection, formData)
+      .then(response => response.id);
+
+    return from(promise);
   }
 }
