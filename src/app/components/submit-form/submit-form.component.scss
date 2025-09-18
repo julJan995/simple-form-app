@@ -1,0 +1,53 @@
+.submit-form {
+  margin: 4rem auto;
+  padding: 1rem;
+  background: white;
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .caption {
+    font-size: 0.8rem;
+  }
+
+  .query-type-btn {
+    border: 1px solid rgb(0 0 0 / 55%);
+    border-radius: 5px;
+    padding: 5px 62px 5px 0;
+    margin-bottom: 25px;
+  }
+
+  .submit-btn {
+    background: rgba(75, 159, 121, 0.82);
+    border: none;
+    color: white;
+    min-height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+
+    &:hover {
+      background: #79c9a5d1;
+    }
+
+    &:disabled {
+      background: rgba(138, 149, 143, 0.68);
+      cursor: not-allowed;
+    }
+  }
+}

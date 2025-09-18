@@ -1,0 +1,54 @@
+<mat-card class="submit-form">
+  <mat-card-title>Contact Us</mat-card-title>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="details">
+      <div class="row">
+        <div class="col">
+          <p class="caption">First Name: *</p>
+          <mat-form-field appearance="outline" class="form-field">
+            <input matInput id="first-name" type="text" formControlName="firstName" />
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <p class="caption">Last Name: *</p>
+          <mat-form-field appearance="outline" class="form-field">
+            <input matInput id="last-name" type="text" formControlName="lastName" />
+          </mat-form-field>
+        </div>
+      </div>
+      <p class="caption">E-mail Address: *</p>
+      <mat-form-field appearance="outline" class="form-field">
+        <input matInput id="email" type="email" formControlName="email" />
+      </mat-form-field>
+
+      <p class="caption">Query Type: *</p>
+      <mat-radio-group formControlName="queryType">
+        <div class="row">
+          <div class="query-type-btn">
+            <mat-radio-button id="query-type-1" value="general">General Enquiry</mat-radio-button>
+          </div>
+          <div class="query-type-btn">
+            <mat-radio-button id="query-type-2" value="support">Support Request</mat-radio-button>
+          </div>
+        </div>
+      </mat-radio-group>
+
+      <p class="caption">Message: *</p>
+      <mat-form-field appearance="outline" class="form-field">
+        <textarea matInput id="message" formControlName="message"></textarea>
+      </mat-form-field>
+
+      <mat-checkbox id="consent" formControlName="consent">
+        I consent to being contacted by the team.
+      </mat-checkbox>
+
+      <button
+        class="submit-btn"
+        type="submit"
+        [disabled]="!contactForm.valid">
+        Submit
+      </button>
+
+    </div>
+  </form>
+</mat-card>
