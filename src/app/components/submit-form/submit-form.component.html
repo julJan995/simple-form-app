@@ -3,28 +3,47 @@
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="details">
       <div class="row">
-        <label for="first-name">First Name: </label>
-        <input id="first-name" type="text" formControlName="firstName"/>
-        <label for="last-name">Last Name: </label>
-        <input id="last-name" type="text" formControlName="lastName"/>
+        <div class="col">
+          <p class="caption">First Name: *</p>
+          <mat-form-field appearance="outline" class="form-field">
+            <input matInput id="first-name" type="text" formControlName="firstName" />
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <p class="caption">Last Name: *</p>
+          <mat-form-field appearance="outline" class="form-field">
+            <input matInput id="last-name" type="text" formControlName="lastName" />
+          </mat-form-field>
+        </div>
       </div>
-      <label for="email">E-mail Address: </label>
-      <input id="email" type="email" formControlName="email"/>
+      <p class="caption">E-mail Address: *</p>
+      <mat-form-field appearance="outline" class="form-field">
+        <input matInput id="email" type="email" formControlName="email" />
+      </mat-form-field>
 
-      <legend>Query Type:</legend>
-      <input id="query-type-1" type="radio" value="general" formControlName="queryType"/>
-      <label for="query-type-1">General Enquiry</label>
-      <input id="query-type-2" type="radio" value="support" formControlName="queryType"/>
-      <label for="query-type-2">Support Request</label>
+      <p class="caption">Query Type: *</p>
+      <mat-radio-group formControlName="queryType">
+        <div class="row">
+          <div class="query-type-btn">
+            <mat-radio-button id="query-type-1" value="general">General Enquiry</mat-radio-button>
+          </div>
+          <div class="query-type-btn">
+            <mat-radio-button id="query-type-2" value="support">Support Request</mat-radio-button>
+          </div>
+        </div>
+      </mat-radio-group>
 
-      <label for="message">Message: </label>
-      <textarea id="message" type="text" formControlName="message"></textarea>
+      <p class="caption">Message: *</p>
+      <mat-form-field appearance="outline" class="form-field">
+        <textarea matInput id="message" formControlName="message"></textarea>
+      </mat-form-field>
 
-      <label for="consent">Support Request</label>
-      <input id="consent" type="checkbox" formControlName="consent"/>
-      <label for="consent">I consent to being contacted by the team.</label>
+      <mat-checkbox id="consent" formControlName="consent">
+        I consent to being contacted by the team.
+      </mat-checkbox>
 
       <button
+        class="submit-btn"
         type="submit"
         [disabled]="!contactForm.valid">
         Submit

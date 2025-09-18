@@ -7,12 +7,20 @@ import {catchError, EMPTY, Subject, switchMap, tap} from 'rxjs';
 import {FormDataInterface, QueryType} from '../../types/form-data.interface';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-submit-form',
   imports: [
     ReactiveFormsModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatCheckboxModule
   ],
   templateUrl: './submit-form.component.html',
   styleUrl: './submit-form.component.scss'
