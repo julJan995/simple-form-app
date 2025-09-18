@@ -3,9 +3,10 @@ import {ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/
 import {MatCardModule} from '@angular/material/card';
 import {FormDataFirebaseService} from '../../services/form-data-firebase/form-data-firebase.service';
 import {FormDataService} from '../../services/form-data/form-data.service';
-import {catchError, EMPTY, Subject, switchMap} from 'rxjs';
+import {catchError, EMPTY, Subject, switchMap, tap} from 'rxjs';
 import {FormDataInterface, QueryType} from '../../types/form-data.interface';
 import {toSignal} from '@angular/core/rxjs-interop';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-submit-form',
@@ -19,6 +20,10 @@ import {toSignal} from '@angular/core/rxjs-interop';
 export class SubmitFormComponent {
   formDataService = inject(FormDataService);
   formDataFirebaseService = inject(FormDataFirebaseService);
+  private _snackBar = inject(MatSnackBar);
+
+  private successSnackbarMsg = 'Form submitted successfully!';
+  private errorSnackbarMsg = 'Form submission failed. Please try again.';
 
   contactForm = new FormGroup({
     firstName: new FormControl<string>('', {
@@ -53,7 +58,13 @@ export class SubmitFormComponent {
     this._submitTrigger.asObservable().pipe(
       switchMap(formData =>
         this.formDataFirebaseService.addFormData(formData).pipe(
-          catchError(() => EMPTY)
+          tap(() => {
+            this._openSnackBar(this.successSnackbarMsg);
+          }),
+          catchError(() => {
+            this._openSnackBar(this.errorSnackbarMsg);
+            return EMPTY;
+          })
         )
       )
     ),
@@ -77,4 +88,9 @@ export class SubmitFormComponent {
       this._submitTrigger.next(formData);
     }
   }
+
+  private _openSnackBar(message: string) {
+    this._snackBar.open(message);
+  }
+
 }
