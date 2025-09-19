@@ -1,6 +1,9 @@
 # SimpleForm
 
+Task from Frontendmentor.io to build a responsive form with validation using Angular.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+
+![Screenshot](assets/images/app-preview.png)
 
 ## Development server
 
